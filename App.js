@@ -1,20 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import "react-native-gesture-handler";
+
+import { StatusBar } from "expo-status-bar";
+import { Text, View } from "react-native";
+// import { NavigationContainer } from "@react-navigation/native";
+import { useFonts } from "expo-font";
+import Loading from "./components/loading";
+import { NavigationContainer } from "@react-navigation/native";
+import StackNav from "./components/ScreenNavigator";
+import { useState } from "react";
+import TabNav from "./components/TabNav";
+import MyDrawer from "./components/Drawer";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    SFBlack: require("./assets/fonts/SF-Pro-Text-Black.otf"),
+    SFMedium: require("./assets/fonts/SF-Pro-Text-Medium.otf"),
+    SFLight: require("./assets/fonts/SF-Pro-Text-Light.otf"),
+  });
+
+  if (!fontsLoaded) {
+    return <Loading />;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <View className="flex-1">
+        {/* <TabNav /> */}
+        <MyDrawer />
+        <StatusBar style="light" />
+      </View>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
