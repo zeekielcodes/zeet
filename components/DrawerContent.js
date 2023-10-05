@@ -9,8 +9,11 @@ import {
 import React from "react";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function DrawerContent() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView className="flex-1">
       <View className="justify-center items-center border-gray-50 p-8">
@@ -28,13 +31,13 @@ export default function DrawerContent() {
       </View>
       <ScrollView className="flex-1 bg-white p-2">
         <View className="py-2 border-b-2 border-main">
-          <TouchableHighlight>
+          <TouchableHighlight onPress={() => navigation.navigate("NewZeet")}>
             <View className="flex flex-row gap-2 items-center p-2 mb-2">
               <Ionicons name={"person"} size={25} color={"#124475"} />
               <Text className="text-lg font-SFMedium text-main">Profile</Text>
             </View>
           </TouchableHighlight>
-          <TouchableHighlight>
+          <TouchableOpacity onPress={() => navigation.navigate("ZeetGreen")}>
             <View className="flex flex-row gap-2 items-center p-2 mb-2">
               <MaterialIcons
                 name={"verified-user"}
@@ -45,7 +48,7 @@ export default function DrawerContent() {
                 Zeet Green
               </Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <TouchableHighlight>
             <View className="flex flex-row gap-2 items-center p-2 mb-2">
               <MaterialIcons name={"topic"} size={25} color={"#124475"} />

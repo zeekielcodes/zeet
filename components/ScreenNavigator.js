@@ -7,6 +7,8 @@ import SingleJot from "../screens/SingleJot";
 import Profilescreen from "../screens/Profilescreen";
 import NewZeet from "../screens/NewZeet";
 import TabNav from "./TabNav";
+import ZeetGreen from "../screens/ZeetGreen";
+import Header from "./Header";
 
 const StackNav = () => {
   const Stack = createNativeStackNavigator();
@@ -17,6 +19,7 @@ const StackNav = () => {
         component={TabNav}
         options={{
           title: "Home",
+          headerTitle: (props) => <Header {...props} />,
           headerStyle: {
             backgroundColor: "#124475",
           },
@@ -63,6 +66,22 @@ const StackNav = () => {
         component={NewZeet}
         options={{
           title: "Add New Zeet",
+          headerStyle: {
+            backgroundColor: "#124475",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            className: "font-SFMedium",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="ZeetGreen"
+        component={ZeetGreen}
+        options={{
+          title: "Zeet Green",
+          // headerTitle: (props) => <Header {...props} />,
           headerStyle: {
             backgroundColor: "#124475",
           },

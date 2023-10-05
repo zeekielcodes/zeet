@@ -6,12 +6,12 @@ import AddZeet from "../components/AddZeet";
 
 export default function HomeScreen({ navigation }) {
   const [posts, setPosts] = useState(null);
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerShown: true,
-      headerTitle: "Home",
-    });
-  }, []);
+  // useLayoutEffect(() => {
+  //   navigation.setOptions({
+  //     headerShown: true,
+  //     headerTitle: "Home",
+  //   });
+  // }, []);
 
   useEffect(() => {
     fetch("https://dummyjson.com/posts")

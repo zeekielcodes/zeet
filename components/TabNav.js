@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
 import React, { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -8,6 +8,7 @@ import StackNav from "./ScreenNavigator";
 import Notifications from "../screens/Notifications";
 import MessagesStack from "./MessagesStack";
 import HomeScreen from "../screens/HomeScreen";
+import Header from "./Header";
 // import { AppState } from "./AppContext";
 
 const TabNav = () => {
@@ -50,7 +51,16 @@ const TabNav = () => {
           },
           tabBarShowLabel: false,
           headerTintColor: "#fff",
-          headerShown: false,
+          headerShown: true,
+          title: "Home",
+          headerTitle: (props) => <Header {...props} />,
+          // headerRight: () => (
+          //   <Button
+          //     onPress={() => alert("This is a test button!")}
+          //     title="Info"
+          //     color="red"
+          //   />
+          // ),
           headerTitleStyle: {
             fontWeight: "bold",
           },
