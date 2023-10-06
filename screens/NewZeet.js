@@ -28,6 +28,7 @@ export default function NewZeet() {
         className="h-[40px] w-[40px] rounded-full"
       />
       <TextInput
+        multiline={true}
         placeholder="What's happening?"
         className="p-2 font-SFMedium text-lg text-black flex-1 flex-wrap"
         onChangeText={(text) => setNewZeet(text)}

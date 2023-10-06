@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 // import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Loading from "./components/loading";
@@ -10,6 +10,7 @@ import StackNav from "./components/ScreenNavigator";
 import { useState } from "react";
 import TabNav from "./components/TabNav";
 import MyDrawer from "./components/Drawer";
+import AuthStack from "./components/AuthStack";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -19,13 +20,18 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return <Loading />;
+    return (
+      <View className="justify-center items-center flex-1">
+        <ActivityIndicator size={"large"} color={"#124475"} />
+      </View>
+    );
   }
   return (
     <NavigationContainer>
       <View className="flex-1">
         {/* <TabNav /> */}
-        <MyDrawer />
+        {/* <MyDrawer /> */}
+        <AuthStack />
         <StatusBar style="light" />
       </View>
     </NavigationContainer>
