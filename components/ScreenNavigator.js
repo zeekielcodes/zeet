@@ -15,7 +15,7 @@ const StackNav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="HomeScreen"
+        name="TabNav"
         component={TabNav}
         options={{
           title: "Home",
