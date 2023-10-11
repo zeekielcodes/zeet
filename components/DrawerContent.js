@@ -31,12 +31,12 @@ export default function DrawerContent() {
       </View>
       <ScrollView className="flex-1 bg-white p-2">
         <View className="py-2 border-b-2 border-main">
-          <TouchableHighlight onPress={() => navigation.navigate("NewZeet")}>
+          <TouchableOpacity onPress={() => navigation.navigate("MyProfile")}>
             <View className="flex flex-row gap-2 items-center p-2 mb-2">
               <Ionicons name={"person"} size={25} color={"#124475"} />
               <Text className="text-lg font-SFMedium text-main">Profile</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("ZeetGreen")}>
             <View className="flex flex-row gap-2 items-center p-2 mb-2">
               <MaterialIcons

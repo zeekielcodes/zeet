@@ -5,18 +5,46 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  FlatList,
 } from "react-native";
 import React, { useLayoutEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import * as ImagePicker from "expo-image-picker";
 
 export default function SingleJot({ navigation }) {
+  const [selectedImages, setSelectedImages] = useState([]);
   const [commentFocus, setCommentFocus] = useState(false);
   const [comment, setComment] = useState("");
   const {
     params: { postNprofile },
   } = useRoute();
+
+  const pickImageAsync = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      // allowsEditing: true,
+      allowsMultipleSelection: true,
+      quality: 1,
+      // aspect: [1, 1],
+      selectionLimit: 4,
+    });
+
+    if (!result.canceled) {
+      console.log(result);
+      // if (selectedImages.length < 4) {
+      // setSelectedImages([...selectedImages, result.assets[0]]);
+      // } else {
+      //   alert("Maximum accpeted amount of images reached");
+      // }
+      // console.log(result.assets.length);
+      // console.log(selectedImages);
+      console.log(result);
+    } else {
+      alert("You did not select any image.");
+    }
+  };
+
   return (
     <View className="flex-1">
       <ScrollView className="bg-white flex-1">
@@ -88,10 +116,30 @@ export default function SingleJot({ navigation }) {
             onChangeText={(text) => setComment(text)}
             maxLength={140}
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={pickImageAsync}>
             <Ionicons name={"camera"} size={20} color={"#124475"} />
           </TouchableOpacity>
         </View>
+        {selectedImages.length > 0 && (
+          <View>
+            {selectedImages.map((image) => (
+              <Image
+                source={{ uri: image.uri }}
+                className="aspect-auto"
+                height={200}
+                width={200}
+              />
+            ))}
+          </View>
+          // <FlatList
+          //   data={selectedImages}
+          //   renderItem={({ item }) => (
+          //     <Image source={{ uri: item.uri }} height={200} width={200} />
+          //   )}
+          //   key={selectedImages.index}
+          //   numColumns={2}
+          // />
+        )}
         {commentFocus && (
           <View className="flex-row items-center gap-6 pt-2">
             <TouchableOpacity>

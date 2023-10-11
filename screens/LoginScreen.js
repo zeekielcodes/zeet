@@ -26,16 +26,17 @@ export default function LoginScreen({ navigation }) {
 
   const signIn = async () => {
     setLoadState(true);
-    // const { data, error } = await supabase.auth.signInWithPassword({
-    //   email,
-    //   password,
-    // });
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
 
-    addAuthUser("me");
+    data.user && addAuthUser(data.user);
+    // data.user && navigation.navigate("TabNav");
     setLoadState(false);
     // console.log("Data", data);
     // console.log("Error", error);
-    // Alert.alert("Error:", error.message);
+    error && Alert.alert("Error:", error.message);
   };
   return (
     <ImageBackground

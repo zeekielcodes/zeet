@@ -3,6 +3,7 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import Loading from "../components/loading";
 import Jot from "../components/Jot";
 import AddZeet from "../components/AddZeet";
+import { supabase } from "../supabase/supabase";
 
 export default function HomeScreen({ navigation }) {
   const [posts, setPosts] = useState(null);

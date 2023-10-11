@@ -10,6 +10,7 @@ import {
   Pressable,
 } from "react-native";
 import React from "react";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 export default function SignUpProfile({ navigation }) {
   return (
@@ -50,6 +51,12 @@ export default function SignUpProfile({ navigation }) {
           className="rounded-md bg-main p-2"
           onPress={() => navigation.navigate("SetUpProfile")}
         >
+          {/* <DateTimePicker
+            value={new Date()}
+            dateFormat="day month year"
+            display="inline"
+            mode="date"
+          /> */}
           <Text className="text-white font-SFMedium text-base text-center">
             Submit
           </Text>

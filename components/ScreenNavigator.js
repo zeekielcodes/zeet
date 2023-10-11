@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HomeScreen from "../screens/HomeScreen";
 import SingleJot from "../screens/SingleJot";
 import Profilescreen from "../screens/Profilescreen";
@@ -9,9 +9,11 @@ import NewZeet from "../screens/NewZeet";
 import TabNav from "./TabNav";
 import ZeetGreen from "../screens/ZeetGreen";
 import Header from "./Header";
+import MyProfile from "../screens/MyProfile";
 
 const StackNav = () => {
   const Stack = createNativeStackNavigator();
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -49,6 +51,21 @@ const StackNav = () => {
       <Stack.Screen
         name="Profile"
         component={Profilescreen}
+        options={{
+          title: "Profile",
+          headerStyle: {
+            backgroundColor: "#124475",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            className: "font-SFMedium",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="MyProfile"
+        component={MyProfile}
         options={{
           title: "Profile",
           headerStyle: {
