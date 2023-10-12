@@ -8,7 +8,11 @@ const supabaseUrl = "https://jusqwzsxrlwlbuqqzgyl.supabase.co";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp1c3F3enN4cmx3bGJ1cXF6Z3lsIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYzOTY3NDIsImV4cCI6MjAxMTk3Mjc0Mn0.-pE6pOTuskBLboLlonaKYKy4uDIEKsktEhhpw6K66sc";
 export const supabase = createClient(supabaseUrl, supabaseKey, {
-  localStorage: AsyncStorage,
+  auth: {
+    persistSession: false,
+    autoRefreshToken: false,
+    detectSessionInUrl: false,
+  },
 });
 
 // export const supabase = createClient(
