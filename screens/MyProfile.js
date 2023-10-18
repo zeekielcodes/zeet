@@ -74,7 +74,7 @@ export default function MyProfile({ navigation }) {
       <ImageBackground source={require("../assets/images/cover.png")}>
         <View className="h-[150px]"></View>
       </ImageBackground>
-      <View className="flex flex-row justify-between items-center px-4 -mt-[50px]">
+      <View className="flex flex-row justify-between items-center px-2 -mt-[50px]">
         <View>
           <View className="w-[110px] justify-center items-center rounded-full bg-main h-[110px]">
             <Image
@@ -105,14 +105,14 @@ export default function MyProfile({ navigation }) {
             color={"#124475"}
           /> */}
           <Text
-            className="font-SFBlack text-lg text-main"
+            className="font-SFBlack text-base text-main"
             style={{ includeFontPadding: false, textAlignVertical: "center" }}
           >
             Edit Profile
           </Text>
         </TouchableOpacity>
       </View>
-      <View className="px-4">
+      <View className="px-2">
         <Text className="font-SFMedium text-md">{userdata?.bio}</Text>
         <View className="py-2 mt-1 border-y-2 border-gray-300">
           <View className="flex flex-row flex-wrap gap-1 items-center">
@@ -152,6 +152,10 @@ export default function MyProfile({ navigation }) {
               <Ionicons name={"mail"} size={15} color={"#124475"} />
               <Text className="text-md font-SFMedium">{user.email}</Text>
             </View>
+          </View>
+          <View className="flex-row gap-4 p-2 items-center">
+            <Text className="text-md font-SFBlack">0 Following</Text>
+            <Text className="text-md font-SFBlack">0 Followers</Text>
           </View>
         </View>
       </View>

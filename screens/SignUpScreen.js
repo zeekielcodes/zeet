@@ -9,6 +9,7 @@ import {
   SafeAreaView,
   Alert,
   ActivityIndicator,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -102,12 +103,9 @@ export default function SignUpScreen({ navigation }) {
           <Text className="text-md text-black font-SFLight text-center">
             Already have an account?{" "}
           </Text>
-          <TouchableOpacity
-            className=""
-            onPress={() => navigation.navigate("Login")}
-          >
+          <Pressable className="" onPress={() => navigation.navigate("Login")}>
             <Text className="font-SFBlack text-main">Log in</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </ImageBackground>

@@ -10,6 +10,7 @@ import {
   ActivityIndicator,
   Alert,
   Modal,
+  Pressable,
 } from "react-native";
 import React, { useState } from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -108,12 +109,9 @@ export default function LoginScreen({ navigation }) {
           <Text className="text-md text-black font-SFLight text-center">
             Don't have an account?{" "}
           </Text>
-          <TouchableOpacity
-            className=""
-            onPress={() => navigation.navigate("SignUp")}
-          >
+          <Pressable className="" onPress={() => navigation.navigate("SignUp")}>
             <Text className="font-SFBlack text-main">Sign Up</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </ImageBackground>

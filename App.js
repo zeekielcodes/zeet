@@ -13,6 +13,7 @@ import TabNav from "./components/TabNav";
 import MyDrawer from "./components/Drawer";
 import AuthStack from "./components/AuthStack";
 import { userAuth } from "./utils/AuthState";
+import SignUpProfile from "./screens/SignUpProfile";
 
 // const linking = {
 //   prefixes: [Linking.createURL("/")],
@@ -81,7 +82,8 @@ export default function App() {
         ) : user === null ? (
           <AuthStack />
         ) : (
-          <MyDrawer />
+          // <MyDrawer />
+          <SignUpProfile />
         )}
 
         <StatusBar style="light" />

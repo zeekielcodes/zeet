@@ -61,10 +61,16 @@ export default function SingleJot({ navigation }) {
             />
           </TouchableOpacity>
           <View className="gap-0">
-            <Text className="font-SFBlack text-lg">
+            <Text
+              className="font-SFBlack text-lg"
+              style={{ includeFontPadding: false, textAlignVertical: "center" }}
+            >
               {postNprofile.firstName} {postNprofile.lastName}
             </Text>
-            <Text className="text-gray-500 text-md font-SFMedium">
+            <Text
+              className="text-gray-500 text-md font-SFMedium"
+              style={{ includeFontPadding: false, textAlignVertical: "center" }}
+            >
               @{postNprofile.username}
             </Text>
           </View>
