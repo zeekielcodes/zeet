@@ -10,6 +10,7 @@ import TabNav from "./TabNav";
 import ZeetGreen from "../screens/ZeetGreen";
 import Header from "./Header";
 import MyProfile from "../screens/MyProfile";
+import LocationMap from "../screens/LocationMap";
 
 const StackNav = () => {
   const Stack = createNativeStackNavigator();
@@ -53,6 +54,21 @@ const StackNav = () => {
         component={Profilescreen}
         options={{
           title: "Profile",
+          headerStyle: {
+            backgroundColor: "#124475",
+          },
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            className: "font-SFMedium",
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Location"
+        component={LocationMap}
+        options={{
+          title: "Location",
           headerStyle: {
             backgroundColor: "#124475",
           },

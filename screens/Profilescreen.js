@@ -6,6 +6,7 @@ import {
   ImageBackground,
   TouchableOpacity,
   FlatList,
+  Pressable,
 } from "react-native";
 import React, { useEffect, useLayoutEffect, useState } from "react";
 import { useRoute } from "@react-navigation/native";
@@ -83,12 +84,24 @@ export default function Profilescreen({ navigation }) {
             </View>
           </View>
           <View className="flex my-2 flex-row justify-between items-center">
-            <View className="flex flex-row items-center gap-1">
+            <Pressable
+              onPress={() =>
+                navigation.navigate("Location", {
+                  location: postNprofile.address,
+                  data: {
+                    first: postNprofile.firstName,
+                    last: postNprofile.lastName,
+                    image: postNprofile.image,
+                  },
+                })
+              }
+              className="flex flex-row items-center gap-1"
+            >
               <Ionicons name={"location"} size={20} color={"#124475"} />
               <Text className="text-md font-SFMedium">
                 {postNprofile.address.city}, {postNprofile.address.state}
               </Text>
-            </View>
+            </Pressable>
             <View className="flex flex-row items-center gap-1">
               <Ionicons name={"link"} size={20} color={"#124475"} />
               <Text className="text-md font-SFMedium">

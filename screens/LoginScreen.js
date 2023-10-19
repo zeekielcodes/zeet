@@ -96,6 +96,7 @@ export default function LoginScreen({ navigation }) {
         <TouchableOpacity
           className="rounded-md flex-row justify-center items-center bg-main p-2"
           onPress={signIn}
+          disabled={loadState}
         >
           <Text className="text-white font-SFMedium text-base text-center">
             {!loadState ? (

@@ -82,8 +82,8 @@ export default function App() {
         ) : user === null ? (
           <AuthStack />
         ) : (
-          // <MyDrawer />
-          <SignUpProfile />
+          <MyDrawer />
+          // <SignUpProfile />
         )}
 
         <StatusBar style="light" />

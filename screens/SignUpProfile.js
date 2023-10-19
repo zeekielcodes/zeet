@@ -25,10 +25,13 @@ export default function SignUpProfile({ navigation }) {
     console.log("Waiting..");
     // console.log(authUser);
     // if (avi) {
+    const decoded = decode();
+    console.log("Decoded image", decoded);
     const { data, error } = await supabase.storage
       .from("images")
-      .upload(authUser.id + "/" + new Date().getTime(), decode('base64FileData'), {
+      .upload(authUser.id + "/" + "avatar.png", decoded, {
         contentType: "image/png",
+        upsert: true,
       });
     console.log("response", data ? data : error);
     if (error) {
